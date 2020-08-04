@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/styles.css">
-    <title> Produto </title>
+    <title>Product Brand</title>
 </head>
 <body>
     <header>
@@ -23,33 +23,21 @@
         </div>
     </header>
     <div id="content">
-        <h3>Produto</h3>
-        <div id="new">
-            <a href="form.html">Novo</a> 
-        </div>
-        <table>
-            <thead>
-                <tr>           
-                    <th>ID</th>
-                    <th>Nome</th>
-                    <th>Descrição</th>
-                    <th>Preço</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>0</td>
-                    <td>nome</td>
-                    <td>Descrição</td>
-                    <td>0</td>
-                    <td>
-                        <a href="form.html">Editar</a> |
-                        <a href="#">Deletar</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <h3> Marca </h3>
+        <form action="#" method="POST"
+            <label for = "id"> ID: </label><input type="text" name="id" id="id">
+            <label for = "name"> Nome: </label><input type="text" name="name" id="name">
+            <label for = "full_name"> Descrição: </label><input type="text" name="description" id="description">
+            <div class = "buttons"> 
+                <button type = "submit" class = "save"> Salvar </button>
+                <button type = "reset" class = "clear"> Limpar </button>
+            </div>
+        </form>   
+        <div class = "btn-listagem">
+            <a href = "index.html" > Voltar a listagem</a>
+        </div> 
     </div>
 </body>
 </html> 
+
+
