@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/styles.css">
-    <title>Categorias</title>
+    <title>Product Category</title>
 </head>
 <body>
     <header>
@@ -23,31 +23,22 @@
         </div>
     </header>
     <div id="conteudo">
-        <h3>Categorias</h3>
-        <div id="novo">
-            <a href="form.html">Novo</a> 
+        <h3>Categoria</h3>
+        <form action="#" method="POST">
+            <label for="id">ID:</label>
+            <input type="text" name="id" id="id">
+            <label for="nome">Nome:</label>
+            <input type="text" name="preco" id="preco">
+            <label for="descricao">Descricao:</label>
+            <textarea type="text" name="descricao" id="descricao"></textarea>
+            <div class="buttons">
+                <button type="submit" class="salvar">Salvar</button>
+                <button type="reset" class="limpar">Limpar</button>
+            </div>
+        </form>
+        <div class="btn-listagem">
+            <a href="index.html">Voltar a listagem</a>
         </div>
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nome</th>
-                    <th>Descricao</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>0</td>
-                    <td>nome</td>
-                    <td>descricao</td>
-                    <td>
-                        <a href="form.html">Editar</a> |
-                        <a href="#">Deletar</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
     </div>
 </body>
 </html>
