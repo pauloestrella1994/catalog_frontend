@@ -38,19 +38,19 @@ h1{
     text-align: center;
     color:#F7BC1C;
 }
-#content #novo{
+#content #new{
     width: 80%;
     margin: auto;
     text-align: right;
     margin-bottom: 1em;
 }
-#content #novo a{
+#content #new a{
     background: #1fe6a8;
     color:#fff;
     padding: .275em 1.5em;
     text-decoration: none;
 }
-#content #novo a:hover{
+#content #new a:hover{
     background: #fff;
     border: 1px solid #1fe6a8;
     color:#1fe6a8;
@@ -125,42 +125,42 @@ form .buttons{
     width: 40%;
     margin: 1em auto;
 }
-form .buttons .salvar, form .buttons .limpar{ 
+form .buttons .save, form .buttons .clean{ 
     padding: .2em 1em;
     border: none;
     cursor: pointer;
     text-transform: lowercase;
 }
-form .buttons .salvar{
+form .buttons .save{
     background: #0c29d0;
     color:#fff;
     border:1px solid  #0c29d0;
 }
-form .buttons .salvar:hover{
+form .buttons .save:hover{
     background: #fff;
     color:#0c29d0;
     border:1px solid  #0c29d0;
 }
-form .buttons .limpar{ 
+form .buttons .clean{ 
     background: #fff;
     border:1px solid  #ffffff;
     color:#F7BC1C;
 }
-form .buttons .limpar:hover{ 
+form .buttons .clean:hover{ 
     background: #F7BC1C;
     color:#fff;
     border:1px solid  #F7BC1C;
 }
-.btn-listagem{
+.btn-listing{
     width: 45%;
     margin: 1em auto 0;
 }
-.btn-listagem a{
+.btn-listing a{
     color:#6A00A3;
     font-size: 14px;
     text-transform: lowercase;
     text-decoration: none;
 }
-.btn-listagem a:hover{
+.btn-listing a:hover{
     text-decoration: underline;
 }
