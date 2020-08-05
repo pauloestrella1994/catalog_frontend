@@ -1,0 +1,8 @@
+1-Validação de forms
+    1.1-Exibir campos obrigatórios
+2-Ação de salvar nos forms
+    2.1-Exibir mensagem de salvo(criado/editado)
+3-Ação de deletar
+    3.1-Exibir mensagem de deletado
+4-Listagens
+    4.1-Carregamento dos dados via Ajax

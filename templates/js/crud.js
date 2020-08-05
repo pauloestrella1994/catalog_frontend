@@ -3,7 +3,8 @@ function read_api(id){
 
 }
 function create_api(data){
-
+    console.log('asd')
+    $('.msg.success').html('<p>Dado salvo com sucesso!</p>');
 }
 function update_api(data){
 
@@ -38,3 +39,21 @@ $('.btn-delete').click( (event)=>{
 } );
 
 
+$('form').submit((event)=>{
+    $('.msg.success').html('')
+    $('.msg-error').html('');
+    event.preventDefault();
+    let message = '';
+    let values = $(event.target).serializeArray();
+    values.forEach(e => {
+        $("[name='"+e['name']+"']").removeClass('input-error');
+        if(e['value'].trim() == ''){
+            message += '<p>* O campo '+e['name']+' precisa ser preenchido! </p>';
+            $("[name='"+e['name']+"']").addClass('input-error');
+        }
+    });
+    $('.msg-error').html(message);
+    if(message==''){
+        create_api(values);
+    }
+});
