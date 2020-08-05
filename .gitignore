@@ -1,1 +1,5 @@
-templates/html/.DS_Store
+# DS Store
+.DS_Store
+._.DS_Store
+**/.DS_Store
+**/._.DS_Store
