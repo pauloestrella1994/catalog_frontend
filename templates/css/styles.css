@@ -14,18 +14,13 @@
     padding: 0 ;
 }
 
-header{
-    background: #0c29d0;
-    height: 60px;
-    width: 100%;
-}
 body{
     font-family:Soleil!important;
     background-color: #ccc;
     color:#000;
 
 }
-#conteudo{
+#content{
     background: #fff;
     width: 90%;
     margin: 1.5em auto;
@@ -39,89 +34,47 @@ h1{
     color:#0DC78B;
 }
 
-header #logo{
-    display: inline-block;
-    vertical-align: top;
-    width: 10%;
-    padding: 0 2%;
-    margin-top: -10px;
-    color:#fff;
-}
-header #logo a{
-    color:#fff;
-    text-decoration: none;
-    text-transform: none;
-}
-header #menu{
-    display: inline-block;
-    vertical-align: top;
-    width: 80%;
-}
-header #menu ul
-{
-    list-style: none;
-}
-header #menu ul li
-{
-    display: inline-block;
-    font-size: 12px;
-    margin: .0em 1em;
-}
-header #menu ul li a
-{
-    color:#fff;
-    text-decoration: none;
-    width: 100%;
-    text-transform: capitalize;
-}
-header #menu ul li :hover{
-    background: #fff;
-    color:#0c29d0;
-}
-header #menu ul li :hover a{
-    color:#0c29d0;
-}
-#conteudo h3{
+#content h3{
     text-align: center;
     color:#F7BC1C;
 }
-#conteudo #novo{
+#content #novo{
     width: 80%;
     margin: auto;
     text-align: right;
     margin-bottom: 1em;
 }
-#conteudo #novo a{
+#content #novo a{
     background: #1fe6a8;
     color:#fff;
     padding: .275em 1.5em;
     text-decoration: none;
 }
-#conteudo #novo a:hover{
+#content #novo a:hover{
     background: #fff;
     border: 1px solid #1fe6a8;
     color:#1fe6a8;
     padding: .275em 1.5em;
 }
-#conteudo table{
+#content table{
     width: 80%;
     margin: auto;
     border: 1px solid #1fe6a8;
     border-collapse: collapse;
 }
-#conteudo table thead tr{
+#content table thead tr{
     background: #1fe6a8;
     color:#fff;
 }
-#conteudo table thead tr th{
+#content table thead tr th{
     padding: 0.375em 0.75em;
 }
 
-#conteudo table tbody tr td{
+#content table tbody tr td{
     border: #1fe6a8 solid 1px;
     padding: 0.15em 0.75em;
 }
-#conteudo table tbody tr:hover{
+#content table tbody tr:hover{
     background: #1fe6a8;
     color:#fff;
     cursor: pointer;
