@@ -1,0 +1,12 @@
+[
+    {
+        "id": 1
+        ,"name": "eletronicos"
+        ,"description": "produtos eletronicos em geral"
+    },
+    {
+        "id": 2
+        ,"name": "livros"
+        ,"description": "livros"
+    }
+]
