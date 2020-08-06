@@ -1,0 +1,12 @@
+[
+    {
+        "id": 1
+        ,"name": "novo"
+        ,"description": "produto novo de fabrica, primeiro dono"
+    },
+    {
+        "id": 2
+        ,"name": "usado"
+        ,"description": "produto ja usado, ja possuiu outro dono"
+    }
+]
