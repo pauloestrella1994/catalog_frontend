@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1
+        ,"name": "macbook pro 13'' "
+        ,"description": "macbook pro I7 16gb 13'' "
+        ,"price":16999.90
+        ,"gtin":""
+        ,"brand_id":1
+        ,"product_condition_id":1
+        ,"shipping_country_id":1
+    },
+    {
+        "id": 2
+        ,"name": "iPhone XS"
+        ,"description": "iPhone XS 64gb"
+        ,"price":4990.00
+        ,"gtin":""
+        ,"brand_id":2
+        ,"product_condition_id":2
+        ,"shipping_country_id":2
+    }
+]
