@@ -1,8 +1,8 @@
-<!-- Product raiting first page -->
+<!-- Product rating first page -->
 <div id="product-rating-index">
-    <div id="content">
         <h3>Classificação</h3>
-
+        <div class="msg success"></div>
+        <div class="msg error error"></div>
         <div id="new">
             <a class="btn-new" href="product-rating/form.html">Novo</a>
         </div>
@@ -11,28 +11,22 @@
             <thead>
                 <tr>
                     <th>id</th>
-                    <th>score</th>
-                    <th>status</th>
-                    <th>person_id</th>
-                    <th>product_id</th>
+                    <th>Score</th>
+                    <th>Status</th>
+                    <th>Person_id</th>
+                    <th>Product_id</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
 
-                <tr>
-                    <td>1</td>
-                    <td>5</td>
-                    <td>ok</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>
-                        <a class="btn-edit" href="product-rating/form.html">Editar</a>
-                        <a class="btn-delete" href="#">Deletar</a>
-                    </td>
-                </tr>
             </tbody>
         </table>
-    </div>
 </div>
+<div id="form">
+
+</div>
+
+
+<script src="../js/product_rating.js"></script>
 <script src="../js/crud.js"></script>

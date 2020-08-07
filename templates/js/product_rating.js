@@ -1,7 +1,7 @@
 // ============ Load data Json File
 function load_data_json(){
     $.ajax({
-        url :'../data/shipping_country.json'
+        url :'../data/product_rating.json'
         ,dataType : 'json'
         ,type : 'get'
         ,success: (data)=>{
@@ -15,10 +15,12 @@ function load_data(data){
     data.forEach(e => {
         data += `<tr>
             <td>${e['id']}</td>
-            <td>${e['name']}</td>"
-            <td>${e['imported']}</td>"
+            <td>${e['score']}</td>"
+            <td>${e['status']}</td>"
+            <td>${e['person_id']}</td>"
+            <td>${e['product_id']}</td>"
             <td>
-                <a class='btn-edit' href='shipping-country/form.html?id=${e['id']}'>Editar</a> |
+                <a class='btn-edit' href='product-rating/form.html?id=${e['id']}'>Editar</a> |
                 <a class='btn-delete' href='#'>Deletar</a>
             </td>
         </tr>`;
@@ -32,15 +34,17 @@ function load_data(data){
 // ============ Find id in Json File and Load html
 function findById(id){
     $.ajax({
-        url :'../data/shipping_country.json'
+        url :'../data/product_rating.json'
         ,dataType : 'json'
         ,type : 'get'
         ,success: (data)=>{
             data.forEach(e => {
                 if(e['id']==id){
                     $("[name='id']").val(e['id']);
-                    $("[name='name']").val(e['name']);
-                    $("[name='imported']").val(e['imported']);
+                    $("[name='score']").val(e['score']);
+                    $("[name='status']").val(e['status']);
+                    $("[name='person_id']").val(e['person_id']);
+                    $("[name='product_id']").val(e['product_id']);
                 }
             });
         }
