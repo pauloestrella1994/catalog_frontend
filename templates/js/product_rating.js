@@ -17,6 +17,8 @@ function load_data(data){
             <td>${e['id']}</td>
             <td>${e['score']}</td>"
             <td>${e['status']}</td>"
+            <td>${e['person_id']}</td>"
+            <td>${e['product_id']}</td>"
             <td>
                 <a class='btn-edit' href='product-rating/form.html?id=${e['id']}'>Editar</a> |
                 <a class='btn-delete' href='#'>Deletar</a>
@@ -41,6 +43,8 @@ function findById(id){
                     $("[name='id']").val(e['id']);
                     $("[name='score']").val(e['score']);
                     $("[name='status']").val(e['status']);
+                    $("[name='person_id']").val(e['person_id']);
+                    $("[name='product_id']").val(e['product_id']);
                 }
             });
         }
