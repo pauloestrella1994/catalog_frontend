@@ -19,6 +19,10 @@ function load_data(data){
             <td>${e['name']}</td>"
             <td>${e['description']}</td>"
             <td>${e['price']}</td>"
+            <td>${e['gtin']}</td>"
+            <td>${e['brand_id']}</td>"
+            <td>${e['product_condition_id']}</td>"
+            <td>${e['shipping_country_id']}</td>"
             <td>
                 <a class='btn-edit' href='product/form.html?id=${e['id']}'>Editar</a> |
                 <a class='btn-delete' href='#'>Deletar</a>
@@ -44,6 +48,10 @@ function findById(id){
                     $("[name='name']").val(e['name']);
                     $("[name='description']").val(e['description']);
                     $("[name='price']").val(e['price']);
+                    $("[name='gtin']").val(e['gtin']);
+                    $("[name='brand_id']").val(e['brand_id']);
+                    $("[name='product_condition_id']").val(e['product_condition_id']);
+                    $("[name='shipping_country_id']").val(e['shipping_country_id']);
                 }
             });
         }
