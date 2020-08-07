@@ -2,6 +2,6 @@
     {
         "id": 1
         ,"name": "Apple"
-        ,"description": "Apple Inc."
+        ,"fullname": "Apple Inc."
     }
 ]
