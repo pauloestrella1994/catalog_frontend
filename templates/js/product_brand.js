@@ -17,7 +17,7 @@ function load_data(data){
         data += `<tr>
             <td>${e['id']}</td>
             <td>${e['name']}</td>"
-            <td>${e['description']}</td>"
+            <td>${e['fullname']}</td>"
             <td>
                 <a class='btn-edit' href='product-brand/form.html?id=${e['id']}'>Editar</a> |
                 <a class='btn-delete' href='#'>Deletar</a>
@@ -41,7 +41,7 @@ function findById(id){
                 if(e['id']==id){
                     $("[name='id']").val(e['id']);
                     $("[name='name']").val(e['name']);
-                    $("[name='description']").val(e['description']);
+                    $("[name='fullname']").val(e['fullname']);
                 }
             });
         }
