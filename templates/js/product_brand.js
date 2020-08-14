@@ -1,8 +1,9 @@
+var product_brand_api = 'http://127.0.0.1:5000/api/product-brand/'
 
 // ============ Load data Json File
 function load_data_json(){
     $.ajax({
-        url :'http://127.0.0.1:5000/api/product-brand'
+        url : product_brand_api
         ,dataType : 'json'
         ,type : 'get'
         ,success: (data)=>{
@@ -36,7 +37,7 @@ function load_data(data){
 // ============ Find id in Json File and Load html
 function findById(id){
     $.ajax({
-        url :'../data/product_brand.json'
+        url : product_brand_api
         ,dataType : 'json'
         ,type : 'get'
         ,success: (data)=>{
@@ -44,7 +45,7 @@ function findById(id){
                 if(e['id']==id){
                     $("[name='id']").val(e['id']);
                     $("[name='name']").val(e['name']);
-                    $("[name='fullname']").val(e['fullname']);
+                    $("[name='full_name']").val(e['full_name']);
                 }
             });
         }

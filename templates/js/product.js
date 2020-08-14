@@ -1,12 +1,16 @@
+var product_api = 'http://127.0.0.1:5000/api/product/'
 
 // ============ Load data Json File
 function load_data_json(){
     $.ajax({
-        url :'../data/products.json'
+        url : product_api
         ,dataType : 'json'
         ,type : 'get'
         ,success: (data)=>{
             load_data(data);
+        },
+        error: (e) => {
+            $('.msg.error.error.api').html('<h4>Erro ao acessar a api</h4>')
         }
     });
 }
@@ -38,7 +42,7 @@ function load_data(data){
 // ============ Find id in Json File and Load html
 function findById(id){
     $.ajax({
-        url :'../data/products.json'
+        url : product_api
         ,dataType : 'json'
         ,type : 'get'
         ,success: (data)=>{
