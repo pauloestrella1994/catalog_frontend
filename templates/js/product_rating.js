@@ -1,8 +1,7 @@
 // ============ Load data Json File
-
+var product_rating_api = 'http://127.0.0.1:5000/api/product-rating/'
 
 function load_data_json(){
-    let product_rating_api = 'http://127.0.0.1:5000/api/product-rating/'
 
     $.ajax({
         url : product_rating_api
@@ -41,7 +40,7 @@ function load_data(data){
 // ============ Find id in Json File and Load html
 function findById(id){
     $.ajax({
-        url :'../data/product_rating.json'
+        url : product_rating_api
         ,dataType : 'json'
         ,type : 'get'
         ,success: (data)=>{

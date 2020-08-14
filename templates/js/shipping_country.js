@@ -1,6 +1,7 @@
 // ============ Load data Json File
+var shipping_country_api = 'http://127.0.0.1:5000/api/shipping-country/'
+
 function load_data_json(){
-    let shipping_country_api = 'http://127.0.0.1:5000/api/shipping-country/'
 
     $.ajax({
         url : shipping_country_api
@@ -37,7 +38,8 @@ function load_data(data){
 // ============ Find id in Json File and Load html
 function findById(id){
     $.ajax({
-        url :'../data/shipping_country.json'
+
+        url : shipping_country_api
         ,dataType : 'json'
         ,type : 'get'
         ,success: (data)=>{
