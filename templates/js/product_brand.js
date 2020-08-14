@@ -2,11 +2,14 @@
 // ============ Load data Json File
 function load_data_json(){
     $.ajax({
-        url :'../data/product_brand.json'
+        url :'http://127.0.0.1:5000/api/product-brand'
         ,dataType : 'json'
         ,type : 'get'
         ,success: (data)=>{
             load_data(data);
+        },
+        error:(e)=>{
+            $('.msg.error.error.api').html('<h4>Erro ao acessar a api</h4>')
         }
     });
 }
@@ -17,7 +20,7 @@ function load_data(data){
         data += `<tr>
             <td>${e['id']}</td>
             <td>${e['name']}</td>"
-            <td>${e['fullname']}</td>"
+            <td>${e['full_name']}</td>"
             <td>
                 <a class='btn-edit' href='product-brand/form.html?id=${e['id']}'>Editar</a> |
                 <a class='btn-delete' href='#'>Deletar</a>
