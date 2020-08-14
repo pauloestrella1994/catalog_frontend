@@ -45,7 +45,7 @@ function findById(id){
                 if(e['id']==id){
                     $("[name='id']").val(e['id']);
                     $("[name='name']").val(e['name']);
-                    $("[name='fullname']").val(e['fullname']);
+                    $("[name='full_name']").val(e['full_name']);
                 }
             });
         }
