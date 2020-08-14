@@ -1,11 +1,16 @@
 // ============ Load data Json File
 function load_data_json(){
+    let shipping_country_api = 'http://127.0.0.1:5000/api/shipping-country/'
+
     $.ajax({
-        url :'../data/shipping_country.json'
+        url : shipping_country_api
         ,dataType : 'json'
         ,type : 'get'
         ,success: (data)=>{
             load_data(data);
+        },
+        error:(e)=>{
+            $('.msg.error.error.api').html('<h4> Erro ao acessar a api</h4>')            
         }
     });
 }
