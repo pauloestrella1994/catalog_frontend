@@ -1,4 +1,4 @@
-let product_condition_api = 'http://127.0.0.1:5000/api/product-condition/'
+var product_condition_api = 'http://127.0.0.1:5000/api/product-condition/'
 
 // ============ Load data Json File
 function load_data_json(){
