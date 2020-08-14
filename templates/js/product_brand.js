@@ -1,3 +1,4 @@
+var product_brand_api = 'http://127.0.0.1:5000/api/product-brand/'
 
 // ============ Load data Json File
 function load_data_json(){
