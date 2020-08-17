@@ -31,6 +31,13 @@ function update(data, id) {
     });
 }
 
+function toJson(data) {
+    let obj = {};
+    obj['name'] = data[1].value;
+    obj['imported'] = data[2] !== undefined ? true : false;
+    return obj
+}
+
 // ============ Load Json result in HTML
 function load_data(data){
     data.forEach(e => {
@@ -59,7 +66,7 @@ function findById(id){
         ,success: (data)=>{
             $("[name='id']").val(data.id);
             $("[name='name']").val(data.name);
-            $("[name='imported']").prop('value', data.imported);
+            $("[name='imported']").prop('checked', data.imported);
         }
     });
 }

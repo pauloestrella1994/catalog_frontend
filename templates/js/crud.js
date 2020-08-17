@@ -46,19 +46,13 @@ $('.btn-delete').click( (event)=>{
 } );
 $('.btn-new').click( (event)=>btnClick(event) );
 
-function toJson(data) {
-    let obj = {};
-    jQuery.map(data, function(n, i) {
-        if (n.value === "true") {
-            obj[n.name] = true;
-        } else if (n.value === "false") {
-            obj[n.name] = false;
-        } else {
-            obj[n.name] = n.value;
-        }
-    });
-    return obj
-}
+// function toJson(data) {
+//     let obj = {};
+//     jQuery.map(data, function(n, i) {
+//         obj[n.name] = n.value;
+//     });
+//     return obj
+// }
 
 $('form').submit((event)=>{
     $('.msg.success').html('')
