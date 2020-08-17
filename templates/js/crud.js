@@ -3,7 +3,7 @@ function read_api(id){
 
 }
 function create_api(data){
-    debugger;
+    //debugger;
     let dataJson = toJson(data);
     delete dataJson.id;
     save(JSON.stringify(dataJson));
@@ -44,15 +44,6 @@ $('.btn-delete').click( (event)=>{
         event.preventDefault();
     }
 } );
-
-//format to json object
-function toJson(data) {
-    let obj = {};
-    $.map(data, function(n, i){
-        obj[n['name']] = n['value'];
-    });
-    return obj;
-}
 
 $('form').submit((event)=>{
     $('.msg.success').html('')
