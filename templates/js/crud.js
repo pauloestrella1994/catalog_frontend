@@ -39,6 +39,8 @@ function btnClick(event){
     $('#form').show(); 
 }
 
+$('.btn-new').click( (event)=>btnClick(event) );
+
 function btnDelete(event) {
     event.preventDefault();
     let id = $(event.target).parent().data("id");
