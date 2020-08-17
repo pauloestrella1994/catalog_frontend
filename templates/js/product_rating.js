@@ -59,7 +59,6 @@ function findById(id){
 // ============ END Find id in Json File and Load html
 
 function save(data) {
-    debugger;
     $.ajax({
         type : 'POST',
         url: product_rating_api,

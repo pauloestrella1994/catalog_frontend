@@ -3,7 +3,6 @@ function read_api(id){
 
 }
 function create_api(data){
-    //debugger;
     let dataJson = toJson(data);
     delete dataJson.id;
     save(JSON.stringify(dataJson));
