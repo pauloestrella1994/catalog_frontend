@@ -15,6 +15,34 @@ function load_data_json(){
     });
 }
 // ============ END Load data Json File
+function update(data, id) {
+    $.ajax({
+        type : 'PUT',
+        url: product_api+id,
+        contentType: 'application/json',
+        data: JSON.stringify(data),
+        success: () => {
+            load_data_json();
+        },
+        error: (e) => {
+            $('.msg.error.error.api').html('<h4>Erro ao acessar a api</h4>')
+        }
+    });
+}
+
+function toJson(data) {
+    let obj = {};
+    obj['id'] = data[0].value;
+    obj['name'] = data[1].value;
+    obj['description'] = data[2].value;
+    obj['price'] = parseFloat(data[3].value);
+    obj['gtin'] = data[4].value;
+    obj['brand_id'] = parseInt(data[5].value);
+    obj['product_condition_id'] = parseInt(data[6].value);
+    obj['shipping_country_id'] = parseInt(data[7].value);
+    return obj;
+}
+
 // ============ Load Json result in HTML
 function load_data(data){
     data.forEach(e => {

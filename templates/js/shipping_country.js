@@ -16,6 +16,28 @@ function load_data_json(){
     });
 }
 // ============ END Load data Json File
+function update(data, id) {
+    $.ajax({
+        type : 'PUT',
+        url: shipping_country_api+id,
+        contentType: 'application/json',
+        data: JSON.stringify(data),
+        success: () => {
+            load_data_json();
+        },
+        error: (e) => {
+            $('.msg.error.error.api').html('<h4>Erro ao acessar a api</h4>')
+        }
+    });
+}
+
+function toJson(data) {
+    let obj = {};
+    obj['name'] = data[1].value;
+    obj['imported'] = data[2] !== undefined ? true : false;
+    return obj
+}
+
 // ============ Load Json result in HTML
 function load_data(data){
     data.forEach(e => {
@@ -44,7 +66,7 @@ function findById(id){
         ,success: (data)=>{
             $("[name='id']").val(data.id);
             $("[name='name']").val(data.name);
-            $("[name='imported']").val(data.imported);
+            $("[name='imported']").prop('checked', data.imported);
         }
     });
 }

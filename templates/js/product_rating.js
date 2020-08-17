@@ -16,6 +16,30 @@ function load_data_json(){
     });
 }
 // ============ END Load data Json File
+function update(data, id) {
+    $.ajax({
+        type : 'PUT',
+        url: product_rating_api+id,
+        contentType: 'application/json',
+        data: JSON.stringify(data),
+        success: () => {
+            load_data_json();
+        },
+        error: (e) => {
+            $('.msg.error.error.api').html('<h4>Erro ao acessar a api</h4>')
+        }
+    });
+}
+
+function toJson(data) {
+    let obj = {};
+    obj['score'] = parseInt(data[1].value);
+    obj['status'] = data[2].value;
+    obj['person_id'] = parseInt(data[3].value);
+    obj['product_id'] = parseInt(data[4].value);
+    return obj
+}
+
 // ============ Load Json result in HTML
 function load_data(data){
     data.forEach(e => {
