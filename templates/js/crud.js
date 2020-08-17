@@ -3,7 +3,10 @@ function read_api(id){
 
 }
 function create_api(data){
-    save(toJson(data));
+    debugger;
+    let dataJson = toJson(data);
+    delete dataJson.id;
+    save(JSON.stringify(dataJson));
     $('.msg.success').html('<p>Dado salvo com sucesso!</p>');
 }
 function update_api(data){
@@ -42,13 +45,13 @@ $('.btn-delete').click( (event)=>{
     }
 } );
 
-//format to json object, create by Matheus
+//format to json object
 function toJson(data) {
     let obj = {};
     $.map(data, function(n, i){
         obj[n['name']] = n['value'];
     });
-    return JSON.stringify(obj);
+    return obj;
 }
 
 $('form').submit((event)=>{
@@ -58,8 +61,9 @@ $('form').submit((event)=>{
     let message = '';
     let values = $(event.target).serializeArray();
     values.forEach(e => {
+
         $("[name='"+e['name']+"']").removeClass('input-error');
-        if(e['value'].trim() == ''){
+        if(e['value'].trim() == '' && e['name'] != 'id'){
             message += '<p>* O campo '+e['name']+' precisa ser preenchido! </p>';
             $("[name='"+e['name']+"']").addClass('input-error');
         }
