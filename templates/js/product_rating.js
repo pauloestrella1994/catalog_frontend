@@ -57,4 +57,21 @@ function findById(id){
     });
 }
 // ============ END Find id in Json File and Load html
+
+function save(data) {
+    debugger;
+    $.ajax({
+        type : 'POST',
+        url: product_rating_api,
+        contentType: 'application/json',
+        data: data,
+        success: () => {
+            load_data_json();
+        },
+        error: (e) => {
+            $('.msg.error.error.api').html('<h4>Erro ao acessar a api</h4>')
+        }
+    });
+}
+
 $(document).ready(()=>load_data_json());
