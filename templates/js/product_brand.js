@@ -60,17 +60,13 @@ function load_data(data){
 // ============ Find id in Json File and Load html
 function findById(id){
     $.ajax({
-        url : product_brand_api
+        url : product_brand_api+id
         ,dataType : 'json'
         ,type : 'get'
         ,success: (data)=>{
-            data.forEach(e => {
-                if(e['id']==id){
-                    $("[name='id']").val(e['id']);
-                    $("[name='name']").val(e['name']);
-                    $("[name='full_name']").val(e['full_name']);
-                }
-            });
+            $("[name='id']").val(data.id);
+            $("[name='name']").val(data.name);
+            $("[name='full_name']").val(data.full_name);
         }
     });
 }
