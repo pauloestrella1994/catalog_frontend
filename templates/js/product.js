@@ -62,4 +62,33 @@ function findById(id){
     });
 }
 // ============ END Find id in Json File and Load html
+
+function save(data) {
+    $.ajax({
+        type : 'POST',
+        url: product_api,
+        contentType: 'application/json',
+        data: data,
+        success: () => {
+            load_data_json();
+        },
+        error: (e) => {
+            $('.msg.error.error.api').html('<h4>Erro ao acessar a api</h4>')
+        }
+    });
+}
+
+function toJson(data) {
+    let obj = {};
+    obj['id'] = (data[0].value);
+    obj['name'] = (data[1].value);
+    obj['description'] = (data[2].value);
+    obj['price'] = parseFloat(data[3].value);
+    obj['gtin'] = (data[4].value);
+    obj['brand_id'] = parseInt(data[5].value);
+    obj['product_condition_id'] = parseInt(data[6].value);
+    obj['shipping_country_id'] = parseInt(data[7].value);
+    return obj;
+}
+
 $(document).ready(()=>load_data_json());
