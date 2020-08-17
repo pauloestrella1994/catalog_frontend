@@ -3,6 +3,7 @@ function read_api(id){
 
 }
 function create_api(data){
+    save(toJson(data));
     $('.msg.success').html('<p>Dado salvo com sucesso!</p>');
 }
 function update_api(data){
@@ -41,6 +42,14 @@ $('.btn-delete').click( (event)=>{
     }
 } );
 
+//format to json object, create by Matheus
+function toJson(data) {
+    let obj = {};
+    $.map(data, function(n, i){
+        obj[n['name']] = n['value'];
+    });
+    return JSON.stringify(obj);
+}
 
 $('form').submit((event)=>{
     $('.msg.success').html('')
