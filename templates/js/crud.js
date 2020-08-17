@@ -13,6 +13,7 @@ function update_api(data) {
     let dataJson = toJson(data);
     delete dataJson.id;
     update(dataJson, id);
+    $('.msg.success').html('<p>Dado editado com sucesso!</p>');
 }
 function delete_api(id){
     $('.msg.success').html('<p>Dado deletado com sucesso!</p>');
