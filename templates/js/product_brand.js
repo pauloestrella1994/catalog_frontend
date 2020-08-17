@@ -39,7 +39,7 @@ function toJson(data) {
 }
 
 // ============ Load Json result in HTML
-function load_data(data){
+function load_data(data){ 
     data.forEach(e => {
         data += `<tr>
             <td>${e['id']}</td>
@@ -75,4 +75,20 @@ function findById(id){
     });
 }
 // ============ END Find id in Json File and Load html
+
+
+function save(data) {
+    $.ajax({
+        type : 'POST',
+        url: product_brand_api,
+        contentType: 'application/json',
+        data: data,
+        success: () => {
+            load_data_json();
+        },
+        error: (e) => {
+            $('.msg.error.error.api').html('<h4>Erro ao acessar a api</h4>')
+        }
+    });
+}
 $(document).ready(()=>load_data_json());
