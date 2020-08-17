@@ -15,6 +15,7 @@ function update_api(data) {
     update(dataJson, id);
 }
 function delete_api(id){
+    delete_data(id);
     $('.msg.success').html('<p>Dado deletado com sucesso!</p>');
 }
 //------------------ end crud api
@@ -37,17 +38,11 @@ function btnClick(event){
     $('#form').show(); 
 }
 
-$('.btn-delete').click( (event)=>{
-    answer = confirm('Deseja deletar?');
-    if(answer){
-        id= 0;
-        delete_api(id);
-    }
-    else{
-        event.preventDefault();
-    }
-} );
-$('.btn-new').click( (event)=>btnClick(event) );
+function btnDelete(event) {
+    event.preventDefault();
+    let id = $(event.target).parent().data("id");
+    delete_api(id);
+}
 
 $('form').submit((event)=>{
     $('.msg.success').html('')

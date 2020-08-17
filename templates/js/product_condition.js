@@ -46,7 +46,7 @@ function load_data(data){
             <td>${e['id']}</td>
             <td>${e['name']}</td>"
             <td>${e['description']}</td>"
-            <td>
+            <td data-id="${e['id']}">
                 <a class='btn-edit' href='product-condition/form.html?id=${e['id']}'>Editar</a> |
                 <a class='btn-delete' href='#'>Deletar</a>
             </td>
@@ -56,9 +56,24 @@ function load_data(data){
     
     $('table tbody').html(data).promise().done(()=>{
         $('.btn-edit').click( (event)=>btnClick(event) );
+        $('.btn-delete').click( (event)=>btnDelete(event) );
     });
 }
 // ============ END Load Json result in HTML
+
+function delete_data(id){
+    $.ajax({
+        url : product_condition_api + id,
+        type: 'DELETE',
+        success: (data) => {
+            load_data_json();
+        },
+        error: (e) => {
+            $('.msg.error.error.api').html('<h4>Erro ao acessar a api</h4>')
+        }
+    })
+}
+
 // ============ Find id in Json File and Load html
 function findById(id){
     $.ajax({
