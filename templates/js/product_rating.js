@@ -40,19 +40,15 @@ function load_data(data){
 // ============ Find id in Json File and Load html
 function findById(id){
     $.ajax({
-        url : product_rating_api
+        url : product_rating_api+id
         ,dataType : 'json'
         ,type : 'get'
         ,success: (data)=>{
-            data.forEach(e => {
-                if(e['id']==id){
-                    $("[name='id']").val(e['id']);
-                    $("[name='score']").val(e['score']);
-                    $("[name='status']").val(e['status']);
-                    $("[name='person_id']").val(e['person_id']);
-                    $("[name='product_id']").val(e['product_id']);
-                }
-            });
+            $("[name='id']").val(data.id);
+            $("[name='score']").val(data.score);
+            $("[name='status']").val(data.status);
+            $("[name='person_id']").val(data.person_id);
+            $("[name='product_id']").val(data.product_id);
         }
     });
 }

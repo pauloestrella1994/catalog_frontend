@@ -39,17 +39,13 @@ function load_data(data){
 // ============ Find id in Json File and Load html
 function findById(id){
     $.ajax({
-        url: product_category_api
+        url: product_category_api+id
         ,dataType : 'json'
         ,type : 'get'
         ,success: (data)=>{
-            data.forEach(e => {
-                if(e['id']==id){
-                    $("[name='id']").val(e['id']);
-                    $("[name='name']").val(e['name']);
-                    $("[name='description']").val(e['description']);
-                }
-            });
+            $("[name='id']").val(data.id);
+            $("[name='name']").val(data.name);
+            $("[name='description']").val(data.description);
         },
         error: (e) => {
             $('.msg.error.error.api').html('<h4>Erro ao acessar a api</h4>')
