@@ -30,6 +30,14 @@ function update(data, id) {
     });
 }
 
+function toJson(data) {
+    let obj = {};
+    jQuery.map(data, function(n, i) {
+        obj[n.name] = n.value;
+    });
+    return obj
+}
+
 // ============ Load Json result in HTML
 function load_data(data){
     data.forEach(e => {
