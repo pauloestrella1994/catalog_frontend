@@ -16,6 +16,30 @@ function load_data_json(){
     });
 }
 // ============ END Load data Json File
+function update(data, id) {
+    $.ajax({
+        type : 'PUT',
+        url: product_rating_api+id,
+        contentType: 'application/json',
+        data: JSON.stringify(data),
+        success: () => {
+            load_data_json();
+        },
+        error: (e) => {
+            $('.msg.error.error.api').html('<h4>Erro ao acessar a api</h4>')
+        }
+    });
+}
+
+function toJson(data) {
+    let obj = {};
+    obj['score'] = parseInt(data[1].value);
+    obj['status'] = data[2].value;
+    obj['person_id'] = parseInt(data[3].value);
+    obj['product_id'] = parseInt(data[4].value);
+    return obj
+}
+
 // ============ Load Json result in HTML
 function load_data(data){
     data.forEach(e => {
@@ -56,23 +80,34 @@ function delete_data(id){
 // ============ Find id in Json File and Load html
 function findById(id){
     $.ajax({
-        url : product_rating_api
+        url : product_rating_api+id
         ,dataType : 'json'
         ,type : 'get'
         ,success: (data)=>{
-            data.forEach(e => {
-                if(e['id']==id){
-                    $("[name='id']").val(e['id']);
-                    $("[name='score']").val(e['score']);
-                    $("[name='status']").val(e['status']);
-                    $("[name='person_id']").val(e['person_id']);
-                    $("[name='product_id']").val(e['product_id']);
-                }
-            });
+            $("[name='id']").val(data.id);
+            $("[name='score']").val(data.score);
+            $("[name='status']").val(data.status);
+            $("[name='person_id']").val(data.person_id);
+            $("[name='product_id']").val(data.product_id);
         }
     });
 }
 
 // ============ END Find id in Json File and Load html
+
+function save(data) {
+    $.ajax({
+        type : 'POST',
+        url: product_rating_api,
+        contentType: 'application/json',
+        data: data,
+        success: () => {
+            load_data_json();
+        },
+        error: (e) => {
+            $('.msg.error.error.api').html('<h4>Erro ao acessar a api</h4>')
+        }
+    });
+}
 
 $(document).ready(()=>load_data_json());

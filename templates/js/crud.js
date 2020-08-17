@@ -3,9 +3,16 @@ function read_api(id){
 
 }
 function create_api(data){
+    let dataJson = toJson(data);
+    delete dataJson.id;
+    save(JSON.stringify(dataJson));
     $('.msg.success').html('<p>Dado salvo com sucesso!</p>');
 }
-function update_api(data){
+function update_api(data) {
+    let id = data[0].value;
+    let dataJson = toJson(data);
+    delete dataJson.id;
+    update(dataJson, id);
 }
 function delete_api(id){
     delete_data(id);
@@ -22,6 +29,7 @@ function loadResource(url, selector){
         }
     });
 }
+
 function btnClick(event){
     event.preventDefault();
     url = $(event.target).attr('href');
@@ -29,7 +37,6 @@ function btnClick(event){
     loadResource(url, resource);
     $('#form').show(); 
 }
-$('.btn-new').click( (event)=>btnClick(event) );
 
 function btnDelete(event) {
     event.preventDefault();
@@ -43,15 +50,21 @@ $('form').submit((event)=>{
     event.preventDefault();
     let message = '';
     let values = $(event.target).serializeArray();
+
     values.forEach(e => {
+
         $("[name='"+e['name']+"']").removeClass('input-error');
-        if(e['value'].trim() == ''){
+        if(e['value'].trim() == '' && e['name'] != 'id') {
             message += '<p>* O campo '+e['name']+' precisa ser preenchido! </p>';
             $("[name='"+e['name']+"']").addClass('input-error');
         }
     });
     $('.msg-error').html(message);
-    if(message==''){
-        create_api(values);
+    if(message == ''){
+        if (values[0].value) {
+            update_api(values);
+        } else {
+            create_api(values);
+        }
     }
 });

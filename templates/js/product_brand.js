@@ -15,8 +15,31 @@ function load_data_json(){
     });
 }
 // ============ END Load data Json File
+function update(data, id) {
+    $.ajax({
+        type : 'PUT',
+        url: product_brand_api+id,
+        contentType: 'application/json',
+        data: JSON.stringify(data),
+        success: () => {
+            load_data_json();
+        },
+        error: (e) => {
+            $('.msg.error.error.api').html('<h4>Erro ao acessar a api</h4>')
+        }
+    });
+}
+
+function toJson(data) {
+    let obj = {};
+    jQuery.map(data, function(n, i) {
+        obj[n.name] = n.value;
+    });
+    return obj
+}
+
 // ============ Load Json result in HTML
-function load_data(data){
+function load_data(data){ 
     data.forEach(e => {
         data += `<tr>
             <td>${e['id']}</td>
@@ -53,19 +76,31 @@ function delete_data(id){
 // ============ Find id in Json File and Load html
 function findById(id){
     $.ajax({
-        url : product_brand_api
+        url : product_brand_api+id
         ,dataType : 'json'
         ,type : 'get'
         ,success: (data)=>{
-            data.forEach(e => {
-                if(e['id']==id){
-                    $("[name='id']").val(e['id']);
-                    $("[name='name']").val(e['name']);
-                    $("[name='full_name']").val(e['full_name']);
-                }
-            });
+            $("[name='id']").val(data.id);
+            $("[name='name']").val(data.name);
+            $("[name='full_name']").val(data.full_name);
         }
     });
 }
 // ============ END Find id in Json File and Load html
+
+
+function save(data) {
+    $.ajax({
+        type : 'POST',
+        url: product_brand_api,
+        contentType: 'application/json',
+        data: data,
+        success: () => {
+            load_data_json();
+        },
+        error: (e) => {
+            $('.msg.error.error.api').html('<h4>Erro ao acessar a api</h4>')
+        }
+    });
+}
 $(document).ready(()=>load_data_json());
