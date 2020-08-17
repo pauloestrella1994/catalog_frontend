@@ -10,7 +10,7 @@ function load_data_json(){
         ,success: (data)=>{
             load_data(data);
         },
-        error:(e)=>{
+        error: (e) =>{
             $('.msg.error.error.api').html('<h4> Erro ao acessar a api</h4>')
         }
     });
@@ -25,7 +25,7 @@ function load_data(data){
             <td>${e['status']}</td>"
             <td>${e['person_id']}</td>"
             <td>${e['product_id']}</td>"
-            <td>
+            <td data-id="${e['id']}">
                 <a class='btn-edit' href='product-rating/form.html?id=${e['id']}'>Editar</a> |
                 <a class='btn-delete' href='#'>Deletar</a>
             </td>
@@ -34,9 +34,25 @@ function load_data(data){
 
         $('table tbody').html(data).promise().done(()=>{
             $('.btn-edit').click( (event)=>btnClick(event) );
+            $('.btn-delete').click( (event)=>btnDelete(event) );
         });
 }
 // ============ END Load Json result in HTML
+
+
+function delete_data(id){
+    $.ajax({
+        url : product_rating_api + id
+        , type: 'DELETE'
+        , success: (data)=> {
+            load_data_json();
+        },
+        error: (e)=> {
+            $('.msg.error.error.api').html('<h4>Erro ao acessar a api</h4>')            
+        }
+    })
+}
+
 // ============ Find id in Json File and Load html
 function findById(id){
     $.ajax({
@@ -55,20 +71,6 @@ function findById(id){
             });
         }
     });
-}
-
-
-function delete_data(id){
-    $.ajax({
-        url : product_rating_api + id
-        , type: 'DELETE'
-        , success: function(){
-            load_data_json();
-        },
-        error: function() {
-            $('.msg.error.error.api').html('<h4>Erro ao acessar a api</h4>')            
-        }
-    })
 }
 
 // ============ END Find id in Json File and Load html
