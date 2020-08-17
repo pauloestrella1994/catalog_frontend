@@ -56,5 +56,19 @@ function findById(id){
         }
     });
 }
+
+
+function delete_data(id){
+    $.ajax({
+        url : product_rating_api + id
+        , dataType: 'json'
+        , type: 'DELETE'
+        , success: function(){
+            alert('Deleted')
+        }
+    })
+}
+
 // ============ END Find id in Json File and Load html
+
 $(document).ready(()=>load_data_json());

@@ -41,7 +41,6 @@ $('.btn-delete').click( (event)=>{
     }
 } );
 
-
 $('form').submit((event)=>{
     $('.msg.success').html('')
     $('.msg-error').html('');
