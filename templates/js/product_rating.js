@@ -61,10 +61,12 @@ function findById(id){
 function delete_data(id){
     $.ajax({
         url : product_rating_api + id
-        , dataType: 'json'
         , type: 'DELETE'
         , success: function(){
-            alert('Deleted')
+            load_data_json();
+        },
+        error: function() {
+            $('.msg.error.error.api').html('<h4>Erro ao acessar a api</h4>')            
         }
     })
 }
