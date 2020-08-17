@@ -38,18 +38,13 @@ function load_data(data){
 // ============ Find id in Json File and Load html
 function findById(id){
     $.ajax({
-
-        url : shipping_country_api
+        url : shipping_country_api+id
         ,dataType : 'json'
         ,type : 'get'
         ,success: (data)=>{
-            data.forEach(e => {
-                if(e['id']==id){
-                    $("[name='id']").val(e['id']);
-                    $("[name='name']").val(e['name']);
-                    $("[name='imported']").val(e['imported']);
-                }
-            });
+            $("[name='id']").val(data.id);
+            $("[name='name']").val(data.name);
+            $("[name='imported']").val(data.imported);
         }
     });
 }
