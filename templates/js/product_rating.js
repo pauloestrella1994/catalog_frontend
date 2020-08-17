@@ -31,6 +31,15 @@ function update(data, id) {
     });
 }
 
+function toJson(data) {
+    let obj = {};
+    obj['score'] = parseInt(data[1].value);
+    obj['status'] = data[2].value;
+    obj['person_id'] = parseInt(data[3].value);
+    obj['product_id'] = parseInt(data[4].value);
+    return obj
+}
+
 // ============ Load Json result in HTML
 function load_data(data){
     data.forEach(e => {
