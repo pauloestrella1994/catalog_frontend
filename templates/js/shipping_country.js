@@ -16,6 +16,21 @@ function load_data_json(){
     });
 }
 // ============ END Load data Json File
+function update(data, id) {
+    $.ajax({
+        type : 'PUT',
+        url: shipping_country_api+id,
+        contentType: 'application/json',
+        data: JSON.stringify(data),
+        success: () => {
+            load_data_json();
+        },
+        error: (e) => {
+            $('.msg.error.error.api').html('<h4>Erro ao acessar a api</h4>')
+        }
+    });
+}
+
 // ============ Load Json result in HTML
 function load_data(data){
     data.forEach(e => {
@@ -38,18 +53,13 @@ function load_data(data){
 // ============ Find id in Json File and Load html
 function findById(id){
     $.ajax({
-
-        url : shipping_country_api
+        url : shipping_country_api+id
         ,dataType : 'json'
         ,type : 'get'
         ,success: (data)=>{
-            data.forEach(e => {
-                if(e['id']==id){
-                    $("[name='id']").val(e['id']);
-                    $("[name='name']").val(e['name']);
-                    $("[name='imported']").val(e['imported']);
-                }
-            });
+            $("[name='id']").val(data.id);
+            $("[name='name']").val(data.name);
+            $("[name='imported']").prop('value', data.imported);
         }
     });
 }

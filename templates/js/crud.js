@@ -25,6 +25,7 @@ function loadResource(url, selector){
         }
     });
 }
+
 function btnClick(event){
     event.preventDefault();
     url = $(event.target).attr('href');
@@ -32,7 +33,6 @@ function btnClick(event){
     loadResource(url, resource);
     $('#form').show(); 
 }
-$('.btn-new').click( (event)=>btnClick(event) );
 
 $('.btn-delete').click( (event)=>{
     answer = confirm('Deseja deletar?');
@@ -44,11 +44,18 @@ $('.btn-delete').click( (event)=>{
         event.preventDefault();
     }
 } );
+$('.btn-new').click( (event)=>btnClick(event) );
 
 function toJson(data) {
     let obj = {};
-    $.map(data, function(n, i){
-        obj[n['name']] = n['value'];
+    jQuery.map(data, function(n, i) {
+        if (n.value === "true") {
+            obj[n.name] = true;
+        } else if (n.value === "false") {
+            obj[n.name] = false;
+        } else {
+            obj[n.name] = n.value;
+        }
     });
     return obj
 }
@@ -59,6 +66,7 @@ $('form').submit((event)=>{
     event.preventDefault();
     let message = '';
     let values = $(event.target).serializeArray();
+
     values.forEach(e => {
         $("[name='"+e['name']+"']").removeClass('input-error');
         if(e['value'].trim() == '' && e['name'] != 'id') {
